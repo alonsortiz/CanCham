@@ -1,5 +1,5 @@
 # CanChamMX
-Movile application build in Ionic v2 framework
+Movile application build in Ionic v1 framework
 
 ## Getting Started: 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -34,9 +34,20 @@ To test on the device, simply plug it in, and run in the project’s root folder
 ```
 $ionic build ios
 ```
-Then, open the xcodeproject on the platforms folder (CanChamApp/platforms/ios/CanChamApp.xcodeproj) and run it on xcode.
+Then, open the xcodeproject on the platforms folder following the next path:
 
-You must have an account on xcode (your apple id credentials). On your iphone, you have to go to Settings->General->Profiles & Device Management, look for your account, and trust it.
+```
+CanChamApp/platforms/ios/CanChamApp.xcodeproj
+```
+and run it on xcode.
+
+You must have an account on xcode (your apple id credentials). On your iphone, you have to go to:
+
+```
+Settings->General->Profiles & Device Management
+```
+
+Then, look for your account, and trust it.
 
 ### Plugins and the platforms
 The plugins and the platforms are already in the project’s root folder. If you have problems with the plugins, reinstall them following these next steps.
