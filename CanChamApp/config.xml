@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.canchamapp228000" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <allow-navigation href="*"/>
-  <allow-navigation href="http://192.168.1.73:8100"/>
-  <allow-navigation href="http://192.168.0.4:8100"/>
-  <allow-navigation href="http://192.168.1.67:8100"/>
-  <allow-navigation href="http://10.48.52.32:8100"/>
   <name>CanChamApp</name>
   <description>
         An Ionic Framework and Cordova project.
@@ -22,6 +17,7 @@
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
+  <preference name="android-build-tool" value="gradle"/>
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
@@ -90,4 +86,8 @@
   <plugin name="cordova-sqlite-storage" spec="~2.0.2"/>
   <plugin name="cordova-plugin-calendar"/>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
+  <allow-navigation href="http://192.168.1.73:8100"/>
+  <allow-navigation href="http://192.168.0.4:8100"/>
+  <allow-navigation href="http://192.168.1.67:8100"/>
+  <allow-navigation href="http://10.48.52.32:8100"/>
 </widget>
