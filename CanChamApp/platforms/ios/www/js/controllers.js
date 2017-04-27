@@ -40,7 +40,6 @@ angular.module('starter.controllers', [])
   // Perform the login action when the user submits the login form
   /*$scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
@@ -98,7 +97,7 @@ angular.module('starter.controllers', [])
       //saving isLogged of Google value into localStorage
       var stored = $scope.isLogged;
       localStorage.setItem('stored', JSON.stringify(stored));
-      alert(localStorage.getItem('stored'));
+      //alert(localStorage.getItem('stored'));
 
       $rootScope.isLoggedFb = !$rootScope.isLoggedFb; //true
 
@@ -233,7 +232,7 @@ angular.module('starter.controllers', [])
         //saving isLogged of Google value into localStorage
         var stored = $scope.isLogged;
         localStorage.setItem('stored', JSON.stringify(stored));
-        alert(localStorage.getItem('stored'));
+        //alert(localStorage.getItem('stored'));
         //localStorage.data = stored;
         console.log(localStorage.stored);
 
@@ -284,35 +283,35 @@ angular.module('starter.controllers', [])
           template: 'Logging out...'
         });
 
-        //facebook logout
-        facebookConnectPlugin.logout(function(){
-          $ionicLoading.hide();
-          $rootScope.isLogged = !$rootScope.isLogged;
+      //facebook logout
+      facebookConnectPlugin.logout(function(){
+        $ionicLoading.hide();
+        $rootScope.isLogged = !$rootScope.isLogged;
 
-          //saving isLogged of Facebook value into localStorage
-          var stored = $scope.isLogged;
-          localStorage.setItem('stored', JSON.stringify(stored));
-          alert(localStorage.getItem('stored'));
+        //saving isLogged of Facebook value into localStorage
+        var stored = $scope.isLogged;
+        localStorage.setItem('stored', JSON.stringify(stored));
+        //alert(localStorage.getItem('stored'));
 
-          $rootScope.isLoggedFb = !$rootScope.isLoggedFb;
+        $rootScope.isLoggedFb = !$rootScope.isLoggedFb;
 
-          //saving isLoggedFb of Facebook value into localStorage
-          var storedFb = $scope.isLoggedFb;
-          localStorage.setItem('storedFb', JSON.stringify(storedFb));
+        //saving isLoggedFb of Facebook value into localStorage
+        var storedFb = $scope.isLoggedFb;
+        localStorage.setItem('storedFb', JSON.stringify(storedFb));
 
 
-          $ionicHistory.clearCache().then(function() {
-              //now you can clear history or goto another state if you need
-              $ionicHistory.clearHistory();
-              $ionicHistory.nextViewOptions({ disableBack: true, historyRoot: true });
-              $state.go('app.home');
-          })
+        $ionicHistory.clearCache().then(function() {
+            //now you can clear history or goto another state if you need
+            $ionicHistory.clearHistory();
+            $ionicHistory.nextViewOptions({ disableBack: true, historyRoot: true });
+            $state.go('app.home');
+        })
 
-          //$state.go('app.home');
-        },
-        function(fail){
-          $ionicLoading.hide();
-        });
+        //$state.go('app.home');
+      },
+      function(fail){
+        $ionicLoading.hide();
+      });
       }
     });
   };
@@ -340,7 +339,7 @@ angular.module('starter.controllers', [])
             //saving isLogged of Google value into localStorage
             var stored = $scope.isLogged;
             localStorage.setItem('stored', JSON.stringify(stored));
-            alert(localStorage.getItem('stored'));
+            //alert(localStorage.getItem('stored'));
             //localStorage.data = stored;
             console.log(localStorage.stored);
 
@@ -368,6 +367,7 @@ angular.module('starter.controllers', [])
   };
 
 })
+
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $state, $q, UserService, $ionicLoading) {
 
@@ -426,6 +426,26 @@ angular.module('starter.controllers', [])
       
 })
 
+
+.controller('AfiliateCtrl', function($scope, $stateParams, $http) {
+  $scope.formData = {};
+  $scope.sendForm = async = function(){
+      var data = this.formData;
+      var nombre = $scope.formData.firstName;
+      var apellidos = $scope.formData.lastName;
+      var organizacion = $scope.formData.company;
+      var email = $scope.formData.email;
+      var link = "https://admin-canchammx-aileennag.c9users.io/afiliate/"+nombre+"/"+apellidos+"/"+organizacion+"/"+email;
+      $http.post(link).then(function successCallback(response) {
+        console.log("Error: No se envió pregunta");
+        alert("No se envió exitosamente tu información");
+      }, function errorCallback(response) {
+        alert("Se envió exitosamente tu información");
+        console.log("Se envió");
+      });
+      $scope.formData = "";
+    };
+})
 
 .controller('EventosCtrl', function($scope, Events, $cordovaCalendar, $timeout, $http) {
   
@@ -515,17 +535,19 @@ angular.module('starter.controllers', [])
 
 
 .controller('PreguntasCtrl', function($scope, $stateParams, $http) {
-    $scope.enviarPregunta = {};
+    $scope.formData = {};
     $scope.sendQuestion = async = function(){
-    var pregunta = $scope.enviarPregunta.pregunta;
-    var link = "https://admin-canchammx-aileennag.c9users.io/pregunta/"+pregunta;
-    $http.get(link).then(function successCallback(response) {
+      var data = this.formData;
+      var pregunta = $scope.formData.pregunta;
+      var link = "https://admin-canchammx-aileennag.c9users.io/pregunta/"+pregunta;
+      $http.get(link).then(function successCallback(response) {
         alert("Se ha enviado tu pregunta satisfactoriamente al expositor");
-    }, function errorCallback(response) {
+        //navigator.notification.alert("Se ha enviado tu pregunta satisfactoriamente al expositor", null, "CanCham", "Close");
+      }, function errorCallback(response) {
         console.log("Error: No se envió pregunta");
-    });
-      $scope.enviarPregunta.pregunta = "";
-      };
+      });
+      $scope.formData.pregunta = "";
+    };
 });
 
 

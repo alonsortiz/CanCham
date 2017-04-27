@@ -6,14 +6,30 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, $state, $ionicPopup) {
+
+  $ionicPlatform.registerBackButtonAction(function (event) {
+    if($state.current.name=="app.home"){
+      $ionicPopup.confirm({
+        title: 'CanChamApp',
+        template: '¿Quieres salir de la aplicación?'
+      }).then(function(res) {
+        if (res) {
+          navigator.app.exitApp();
+        }
+      })
+    }else {
+      navigator.app.preventDefault();
+    }
+  }, 100);
+  
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
 
     if(localStorage['stored'])
     {
-      alert(localStorage.getItem('stored'));
+      //alert(localStorage.getItem('stored'));
       $rootScope.isLogged = JSON.parse(localStorage.getItem('stored'));
       //$rootScope.isLogged = false;
     }
@@ -181,6 +197,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
+  .state('app.acercade', {
+      url: '/acercade',
+      views: {
+         'menuContent': {
+          templateUrl: 'templates/acercade.html',
+          //controller: 'PreguntasCtrl'
+          }
+      }
+  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/inicio');
 });

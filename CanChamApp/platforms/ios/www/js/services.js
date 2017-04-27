@@ -46,7 +46,7 @@ angular.module('starter.services', [])
          
 })
 
-.factory('Events', function($q, $ionicPlatform, $cordovaCalendar, $http) {
+.factory('Events', function($q, $ionicPlatform, $cordovaCalendar, $http, $ionicLoading) {
 
   var incrementDate = function (date, amount) {
       var tmpDate = new Date(date);
@@ -62,14 +62,17 @@ angular.module('starter.services', [])
    
   var eventos = [];
   var getEvents = function(){
+    $ionicLoading.show();
     return $http.get('https://admin-canchammx-aileennag.c9users.io/eventos')
       .success(function(data, status, headers,config){
         console.log('data success');
+        $ionicLoading.hide();
         data.forEach(evento=>{
           eventos.push(evento);
         });
       })
       .error(function(data, status, headers,config){
+        $ionicLoading.hide();
         console.log('data error');
       })
       .then(function(result){
@@ -132,23 +135,26 @@ angular.module('starter.services', [])
 
 })
 
-.factory('Documents', function($q, $timeout, $cordovaFileTransfer, $http) {
+.factory('Documents', function($q, $timeout, $cordovaFileTransfer, $http, $ionicLoading) {
   var documentos = [];
   var getDocumentos = function(){
+    $ionicLoading.show();
     return $http.get('https://admin-canchammx-aileennag.c9users.io/documentos')
       .success(function(data, status, headers,config){
+        $ionicLoading.hide();
         console.log('data success');
         data.forEach(doc=>{
           documentos.push(doc);
         });
       })
       .error(function(data, status, headers,config){
+        $ionicLoading.hide();
         console.log('data error');
       })
       .then(function(result){
         var deferred = $q.defer();
         var promises = [];
-      
+			
         $q.all(promises).then(function(results) {
           console.log("in the all done");
           //should be the same len as events
@@ -157,13 +163,13 @@ angular.module('starter.services', [])
           }
           deferred.resolve(documentos);
         });
-      
-      return deferred.promise;
+			
+			return deferred.promise;
     });
   }
   
   return {
-    get:getDocumentos
+		get:getDocumentos
   };
 
 });

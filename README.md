@@ -34,7 +34,9 @@ To test on the device, simply plug it in, and run in the project’s root folder
 ```
 $ionic build ios
 ```
-Then, open the xcodeproject on the platforms folder and run it on xcode.
+Then, open the xcodeproject on the platforms folder (CanChamApp/platforms/ios/CanChamApp.xcodeproj) and run it on xcode.
+
+You must have an account on xcode (your apple id credentials). On your iphone, you have to go to Settings->General->Profiles & Device Management, look for your account, and trust it.
 
 ### Plugins and the platforms
 The plugins and the platforms are already in the project’s root folder. If you have problems with the plugins, reinstall them following these next steps.
@@ -49,9 +51,4 @@ https://github.com/Telerik-Verified-Plugins/Facebook
 $ cordova plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID=myreversedclientid
 ```
 
-You must change the myreversedclientid with
-```
-com.googleusercontent.apps.371458779681-eung04tcrr8ldiilavlunefvqgnujhvv
-```
-This reverse client id won't be here for a long time.*
 
