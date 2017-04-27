@@ -1,0 +1,25 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <div class="buttons">
+      <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="closeLogin()">Atrás</a>
+    </div>
+  </ion-header-bar>
+  <ion-content class="backimg">
+    <h4 class="title" style="text-align:center"> Ingresa con tus credenciales </h4>
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Correo</span>
+          <input type="text" ng-model="data.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Contraseña</span>
+          <input type="password" ng-model="data.password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="doLogin()">Iniciar Sesión</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

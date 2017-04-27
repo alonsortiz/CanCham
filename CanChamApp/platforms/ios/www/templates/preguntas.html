@@ -1,0 +1,16 @@
+<ion-view class="preguntas" cache-view="false">
+  <ion-content scroll="false">
+    <form ng-submit="sendQuestion()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Escribe tu pregunta</span>
+          <input type="text" ng-model="enviarPregunta.pregunta">
+        </label>
+        <label class="item">
+          <button class="button button-outline button-block button-assertive" type="submit" ng-click="sendQuestion()">Enviar</button>
+          </div>
+      </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

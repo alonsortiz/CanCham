@@ -1,0 +1,32 @@
+<ion-view view-title="Repositorio">
+  	<ion-content scroll="true">
+    
+    <div class="card">
+      <div class="item item-divider" >
+        <h2>Documentos disponibles CanCham Day</h2>
+      </div>
+      <div class="item item-text-wrap" ng-repeat="doc in documents">
+        <div class="col text-center">
+        <i class="icon ion-document-text"></i>{{doc.nombre}}
+        <div class="col text-center">
+        <button class="button button-small button-outline button-assertive" ng-click="descargar(doc,$index)">
+          Visualizar Archivo
+        </button>
+        </div>
+        </div>
+      </div>
+    </div>
+	</ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+

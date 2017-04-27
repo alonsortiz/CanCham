@@ -1,0 +1,60 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "394520834258732",
+            "APP_NAME": "CanChamApp",
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-googleplus": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-calendar": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        }
+    }
+}

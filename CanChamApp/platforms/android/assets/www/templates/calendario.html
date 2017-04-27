@@ -1,0 +1,25 @@
+<ion-view view-title="Calendario de eventos">
+  <ion-content>
+    <div class="card" ng-repeat="event in events">
+      <div class="item item-divider">
+        <font size="4">{{event.nombre}}</font>
+      </div>
+      <div class="item item-text-wrap">
+        <font size="2"><strong>{{ event.fecha | date:'MMMM d, y h:mma'}}</strong></font>
+        <p/>
+        <dfn>{{event.direccion}}</dfn>
+        <p/>
+        <font color="black">{{event.descripcion }}</font>
+        <p ng-if="event.status">Se ha añadido el evento a tu calendario</p>
+        <button ng-if="!event.status" ng-click="addEvent(event,$index)" class="button button-block button-assertive">Añadir al calendario</button>
+      </div>
+    </div>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+      <ion-title>Footer Toolbar</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+  
+</ion-view>
