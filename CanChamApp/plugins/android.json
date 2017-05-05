@@ -47,6 +47,9 @@
         },
         "cordova-plugin-file-opener2": {
             "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.ionicframework.canchamapp228000"
         }
     },
     "dependent_plugins": {

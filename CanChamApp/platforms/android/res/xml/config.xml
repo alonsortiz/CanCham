@@ -53,11 +53,9 @@
     <feature name="FileOpener2">
         <param name="android-package" value="io.github.pwlin.cordova.plugins.fileopener2.FileOpener2" />
     </feature>
-    <allow-navigation href="*" />
-    <allow-navigation href="http://192.168.1.73:8100" />
-    <allow-navigation href="http://192.168.0.4:8100" />
-    <allow-navigation href="http://192.168.1.67:8100" />
-    <allow-navigation href="http://10.48.52.32:8100" />
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
     <name>CanChamApp</name>
     <description>
         An Ionic Framework and Cordova project.
@@ -68,6 +66,10 @@
     <content src="index.html" />
     <access origin="*" />
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
+    <allow-navigation href="http://192.168.1.73:8100" />
+    <allow-navigation href="http://192.168.0.4:8100" />
+    <allow-navigation href="http://192.168.1.67:8100" />
+    <allow-navigation href="http://10.48.52.32:8100" />
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
     <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
     <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
@@ -95,4 +97,5 @@
     <preference name="FadeSplashScreenDuration" value="2000" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashScreen" value="screen" />
+    <preference name="android-build-tool" value="gradle" />
 </widget>

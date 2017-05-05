@@ -12,7 +12,7 @@ body {
 }
 
 .background.scroll-content {
-  background: url(../img/welcome.jpg) no-repeat;
+  background: url(../img/bienvenido.png) no-repeat;
   background-size: cover;
   background-position: center;
   margin: auto;

@@ -1,16 +1,21 @@
-<ion-view class="preguntas" cache-view="false">
+<ion-view class="preguntas" cache-view="false" view-title="Preguntas">
   <ion-content scroll="false">
-    <form ng-submit="sendQuestion()">
+    <div class="col text-center">
+      <p></p>
+      ¿Quieres realizarle una pregunta al expositor?
+      <p></p>
+    </div>
+    <form class="form pregunta" name="preguntaForm">
       <div class="list">
         <label class="item item-input">
-          <span class="input-label">Escribe tu pregunta</span>
-          <input type="text" ng-model="enviarPregunta.pregunta">
-        </label>
-        <label class="item">
-          <button class="button button-outline button-block button-assertive" type="submit" ng-click="sendQuestion()">Enviar</button>
+          <div ng-show="preguntaForm.pregunta.$dirty &amp;&amp; preguntaForm.pregunta.$error.required">
+            Tienes que escribir una pregunta.
           </div>
-      </label>
-      </div>
+          <input type="text" ng-model="formData.pregunta" placeholder="Escribe tu pregunta" required>
+        </label>
+        <button class="button button-outline button-block button-assertive" type="submit"  id="submit-btn" ng-disabled="preguntaForm.$invalid" ng-click="sendQuestion()">Enviar Pregunta</button>
+        </div>
     </form>
   </ion-content>
 </ion-view>
+

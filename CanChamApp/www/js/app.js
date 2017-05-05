@@ -112,7 +112,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/afiliate',
     views: {
       'menuContent': {
-        templateUrl: 'templates/afiliate.html'
+        templateUrl: 'templates/afiliate.html',
+        controller: 'AfiliateCtrl'
       }
     }
   })

@@ -427,7 +427,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('AfiliateCtrl', function($scope, $stateParams, $http) {
+.controller('AfiliateCtrl', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) {
   $scope.formData = {};
   $scope.sendForm = async = function(){
       var data = this.formData;
@@ -436,12 +436,29 @@ angular.module('starter.controllers', [])
       var organizacion = $scope.formData.company;
       var email = $scope.formData.email;
       var link = "https://admin-canchammx-aileennag.c9users.io/afiliate/"+nombre+"/"+apellidos+"/"+organizacion+"/"+email;
+      $ionicLoading.show({
+        template: 'Espere...'
+      });
       $http.post(link).then(function successCallback(response) {
         console.log("Error: No se envió pregunta");
         alert("No se envió exitosamente tu información");
       }, function errorCallback(response) {
-        alert("Se envió exitosamente tu información");
+        if (device.platform === "iOS") {
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+              title: 'CanChamApp',
+              content: 'Se envió exitosamente tu información'
+            }).then(function(res) {
+              console.log('Test Alert Box');
+          });
+        }else if (device.platform === "Android") {
+          $ionicLoading.hide();
+          alert("Se envió exitosamente tu información");
+        }else{
+          alert("Se envió exitosamente tu información");
+        }
         console.log("Se envió");
+        
       });
       $scope.formData = "";
     };
@@ -534,14 +551,31 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('PreguntasCtrl', function($scope, $stateParams, $http) {
+.controller('PreguntasCtrl', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) {
     $scope.formData = {};
     $scope.sendQuestion = async = function(){
       var data = this.formData;
       var pregunta = $scope.formData.pregunta;
       var link = "https://admin-canchammx-aileennag.c9users.io/pregunta/"+pregunta;
+      $ionicLoading.show({
+        template: 'Espere...'
+      });
       $http.get(link).then(function successCallback(response) {
-        alert("Se ha enviado tu pregunta satisfactoriamente al expositor");
+        if (device.platform === "iOS") {
+          $ionicLoading.hide();
+          $ionicPopup.alert({
+              title: 'CanChamApp',
+              content: 'Se ha enviado tu pregunta satisfactoriamente al expositor'
+            }).then(function(res) {
+              console.log('Test Alert Box');
+          });
+        }else if (device.platform === "Android") {
+          $ionicLoading.hide();
+          alert("Se ha enviado tu pregunta satisfactoriamente al expositor");
+        }else{
+          alert("Se ha enviado tu pregunta satisfactoriamente al expositor");
+        }
+        //alert("Se ha enviado tu pregunta satisfactoriamente al expositor");
         //navigator.notification.alert("Se ha enviado tu pregunta satisfactoriamente al expositor", null, "CanCham", "Close");
       }, function errorCallback(response) {
         console.log("Error: No se envió pregunta");

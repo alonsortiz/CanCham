@@ -7,5 +7,6 @@
     "libz.tbd": 1,
     "libz.dylib": 1,
     "EventKit.framework": 1,
-    "EventKitUI.framework": 1
+    "EventKitUI.framework": 1,
+    "AudioToolbox.framework": 1
 }

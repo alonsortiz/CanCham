@@ -1,30 +1,31 @@
-<ion-view view-title="Regístrate">
+<ion-view view-title="Solicitud de membresía">
   <ion-content>
     <div class="container">
-      <p align="center"> ¡Bienvenido a Banorte! </p>
+      <p align="center"> Conozca y aproveche los increíbles
+      beneficios de la membresía en CanCham </p>
     </div>
     
-    <form>
+    <form class="form afiliate" name="afiliateForm">
       <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">Nombre(s)</span>
-          <input type="text" placeholder="Guillermo">
+          <input type="text" name="firstName" id="first-name" ng-model="formData.firstName" ng-pattern="[A-Za-z]" placeholder="Carlos Eduardo" required>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Apellidos</span>
-          <input type="text" placeholder="Guémez">
+          <input type="text" name="lastName" id="last-name" ng-model="formData.lastName" ng-pattern="[A-Za-z]" placeholder="Peréz Suhr" required>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Compañía</span>
-          <input type="text" placeholder="Banorte">
+          <input type="text" name="company" id="company" ng-model="formData.company" ng-pattern="[A-Za-z]" placeholder="Santander" required>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Correo electrónico</span>
-          <input type="text" placeholder="gguemez@banorte.com">
+          <input type="email" name="email" id="email" ng-model="formData.email" placeholder="ceduardo@psuhr.com" required>
         </label>
         <div class="row">
           <div class="col text-center">
-            <button class="button button button-assertive">Solicitar</button>
+            <button class="button button button-assertive" id="submit-btn" ng-disabled="afiliateForm.$invalid" ng-click="sendForm()">Solicitar</button>
           </div>
         </div>
       </div>

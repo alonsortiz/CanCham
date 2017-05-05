@@ -27,25 +27,21 @@
           <i class="icon ion-ios-home"></i>
           Inicio
         </ion-item>
+        <ion-item menu-close href="#/app/calendario">
+          <i class="icon ion-android-calendar"></i>
+          Calendario de eventos
+        </ion-item>
         <ion-item menu-close href="#/app/afiliate">
           <i class="icon ion-android-person-add"></i>
-          Registrar persona
+          Afíliate
         </ion-item>
-        <ion-item ng-show="isLogged" menu-close href="#/app/solicitud">
+        <ion-item ng-show="isLogged" menu-close href="#/app/repositorio">
           <i class="icon ion-android-folder-open"></i>
-          Enviar Solicitud
+          Repositorio
         </ion-item>
-        <ion-item ng-show="isLogged" menu-close href="#/app/servicios">
-          <i class="icon ion-wrench"></i>
-          Servicios
-        </ion-item>
-        <ion-item ng-show="isLogged" menu-close href="#/app/editarInfo">
-          <i class="icon ion-edit"></i>
-          Editar Información
-        </ion-item>
-        <ion-item ng-show="isLogged" menu-close href="#/app/consulta">
+        <ion-item ng-show="isLogged" menu-close href="#/app/preguntas">
           <i class="icon ion-help"></i>
-          Consulta Persona
+          Preguntas
         </ion-item>
         <ion-item ng-hide="isLogged" menu-close href="#/app/login">
           <i class="icon ion-android-exit"></i>
@@ -59,9 +55,11 @@
           <i class="icon ion-android-exit"></i>
           Cerrar Sesión
         </ion-item>
+        <ion-item menu-close href="#/app/acercade">
+          <i class="icon ion-information-circled"></i>
+          Acerca De
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>
-
-<!-- Registrar persona, enviar solicitud, servicios, editar info, consulta persona, logout -->

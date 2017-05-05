@@ -270,6 +270,22 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.fileOpener2"
         ]
+    },
+    {
+        "id": "cordova-plugin-dialogs.notification",
+        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
+    },
+    {
+        "id": "cordova-plugin-dialogs.notification_android",
+        "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -289,7 +305,8 @@ module.exports.metadata =
     "cordova-plugin-file-transfer": "1.6.2",
     "cordova-sqlite-storage": "2.0.3",
     "cordova-plugin-calendar": "4.5.5",
-    "cordova-plugin-file-opener2": "2.0.15"
+    "cordova-plugin-file-opener2": "2.0.15",
+    "cordova-plugin-dialogs": "1.3.3"
 };
 // BOTTOM OF METADATA
 });

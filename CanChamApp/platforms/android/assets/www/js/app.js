@@ -6,10 +6,48 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $state, $ionicPopup) {
+
+  $ionicPlatform.registerBackButtonAction(function (event) {
+    if($state.current.name=="app.home"){
+      $ionicPopup.confirm({
+        title: 'CanChamApp',
+        template: '¿Quieres salir de la aplicación?'
+      }).then(function(res) {
+        if (res) {
+          navigator.app.exitApp();
+        }
+      })
+    }else {
+      navigator.app.preventDefault();
+    }
+  }, 100);
+  
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+
+    if(localStorage['stored'])
+    {
+      //alert(localStorage.getItem('stored'));
+      $rootScope.isLogged = JSON.parse(localStorage.getItem('stored'));
+      //$rootScope.isLogged = false;
+    }
+
+    if(localStorage['storedGg'])
+    {
+      //alert(localStorage.getItem('storedGg'));
+      $rootScope.isLoggedGg = JSON.parse(localStorage.getItem('storedGg'));
+      //$rootScope.isLogged = false;
+    }
+
+    if(localStorage['storedFb'])
+    {
+      //alert(localStorage.getItem('storedGg'));
+      $rootScope.isLoggedFb = JSON.parse(localStorage.getItem('storedFb'));
+      //$rootScope.isLogged = false;
+    }
+
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -74,7 +112,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/afiliate',
     views: {
       'menuContent': {
-        templateUrl: 'templates/afiliate.html'
+        templateUrl: 'templates/afiliate.html',
+        controller: 'AfiliateCtrl'
       }
     }
   })
@@ -85,42 +124,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
          'menuContent': {
           templateUrl: 'templates/preguntas.html',
           controller: 'PreguntasCtrl'
-          }
-      }
-  })
-
-  .state('app.solicitud', {
-      url: '/solicitud',
-      views: {
-         'menuContent': {
-          templateUrl: 'templates/solicitud.html'
-          }
-      }
-  })
-
-  .state('app.servicios', {
-      url: '/servicios',
-      views: {
-         'menuContent': {
-          templateUrl: 'templates/servicios.html'
-          }
-      }
-  })
-
-  .state('app.editarInfo', {
-      url: '/editarInfo',
-      views: {
-         'menuContent': {
-          templateUrl: 'templates/editarInfo.html'
-          }
-      }
-  })
-
-  .state('app.consulta', {
-      url: '/consulta',
-      views: {
-         'menuContent': {
-          templateUrl: 'templates/consulta.html'
           }
       }
   })
@@ -195,6 +198,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
+  .state('app.acercade', {
+      url: '/acercade',
+      views: {
+         'menuContent': {
+          templateUrl: 'templates/acercade.html',
+          //controller: 'PreguntasCtrl'
+          }
+      }
+  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/inicio');
 });
