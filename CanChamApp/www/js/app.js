@@ -118,6 +118,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
 
+  .state('app.encuestas', {
+    url: '/encuestas',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/encuestas.html'
+      }
+    }
+  })
+
   .state('app.preguntas', {
       url: '/preguntas',
       views: {

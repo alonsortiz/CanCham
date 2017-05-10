@@ -550,6 +550,10 @@ angular.module('starter.controllers', [])
   
 })
 
+.controller('EncuestasCtrl', function($scope, Documents, $timeout, $cordovaFileTransfer) {
+  
+})
+
 
 .controller('PreguntasCtrl', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) {
     $scope.formData = {};
