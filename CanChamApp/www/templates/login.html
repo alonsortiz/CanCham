@@ -7,7 +7,40 @@
       <a class="button icon-left ion-social-google button-assertive" ng-click="googleSignIn()">Google</a>
 
     </div>
-
-
+    <div class="button-bar">
+      <a class="button button-light" ng-click="login()">¿Ya tienes cuenta?</a>
+    </div>
+    
+    <p></p>
+    <p align="center"> O regístrate </p>
+    <form class="form afiliate" name="afiliateForm">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Nombre(s)</span>
+          <input type="text" name="firstName" id="first-name" ng-model="formData.firstName" placeholder="Carlos Eduardo" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Apellido Paterno</span>
+          <input type="text" name="lastName" id="last-name" ng-model="formData.lastName"  placeholder="Peréz Suhr" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Apellido Materno</span>
+          <input type="text" name="lastlastName" id="lastlast-name" ng-model="formData.lastlastName"  placeholder="Peréz Suhr" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Correo electrónico</span>
+          <input type="email" name="email" id="email" ng-model="formData.email" placeholder="ceduardo@psuhr.com" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Password</span>
+          <input type="password" name="pass" id="pass" ng-model="formData.passwd" required>
+        </label>
+        <div class="row">
+          <div class="col text-center">
+            <button class="button button button-assertive" id="submit-btn" ng-disabled="afiliateForm.$invalid" ng-click="sendForm()">Solicitar</button>
+          </div>
+        </div>
+      </div>
+    </form>
   </ion-content>
 </ion-modal-view>
